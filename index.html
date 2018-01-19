@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Janken P</title>
+  </head>
+
+  <body>
+    <script>
+
+      function computerPlay() {
+        const computer = Math.floor(Math.random() * 3);
+        if (computer == 0) {
+          return 'rock';
+        } else if (computer == 1) {
+          return 'paper';
+        } else if (computer == 2) {
+          return 'scissors';
+        } else {
+          return 'Invalid';
+        }
+      }
+
+      function janken(playerSelection, computerSelection) {
+        const player = playerSelection.toLowerCase();
+        const pc = computerSelection.toLowerCase();
+        //
+        // if (player == pc) {
+        //   return 'Its a tie!';
+        // } else {
+        //   if player
+        // }
+
+        if (player == 'rock') {
+          if (pc == 'paper') {
+            return 'You loose! Paper beats Rock';
+          } else if (pc == 'scissors') {
+            return 'You Win! Rock beats Scissors';
+          } else {
+            return 'Its a tie.';
+          }
+        } else if (player == 'paper') {
+          if (pc == 'paper') {
+            return 'Its a tie.';
+          } else if (pc == 'scissors') {
+            return 'You Loose! Scissors beats Paper';
+          } else {
+            return 'You Win! Paper beats Rock';
+          }
+        } else if (player == 'scissors') {
+          if (pc == 'paper') {
+            return 'You Win! Scissors beats paper';
+          } else if (pc == 'rock') {
+            return 'You Loose! Rock beats Scissors';
+          } else {
+            return 'Its a tie.'
+          }
+        } else {
+          return 'Player made an Invalid Selection';
+        }
+      }
+
+    </script>
+
+
+
+  </body>
+</html>
