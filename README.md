@@ -8,9 +8,15 @@
 * randomly generated numbers (0 - 2) returns rock - scissors for the computer.
 
 
-
 # 22/01/2018
 * Player can now play 5 games in a row using the game() function.
 * The game() function prompts the player to type in their selection (rock, papper or scissors).
 * This function keeps a tab of the scores of the game and then returns it at the end.
+
+
+# 10/04/2018
+* Added a basic HTML UserInterface.
+* The game can now be played without using the console.
+* The page is updated with the score after each play.
+
 
