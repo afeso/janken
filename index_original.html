@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Janken P</title>
+  </head>
+
+  <body>
+    <script>
+    // some mini REGEX
+    var goodReg = new RegExp("Win");
+    var badReg = new RegExp("Loose");
+    var neutralReg = new RegExp("Invalid");
+
+      //the below function returns a creates a random number from 0 - 2
+      // each randon number returns rock, paper, or scissors with a conditional
+      // statement.
+      function computerPlay() {
+        const computer = Math.floor(Math.random() * 3);
+        if (computer == 0) {
+          return 'rock';
+        } else if (computer == 1) {
+          return 'paper';
+        } else if (computer == 2) {
+          return 'scissors';
+        } else {
+          return 'Invalid';
+        }
+      }
+
+      // the main rock paper scissors function.
+      // this uses a string from the player and calls the computerPlay Function
+      // and plays both strings against each other and returns win or lose to the
+      // player. JanKen is just the japanese word for Rock Paper Scissors
+      // and its way shoter so i used it for the function name.
+      function janken(playerSelection, computerSelection) {
+        const player = playerSelection.toLowerCase();
+        const pc = computerSelection.toLowerCase();
+        //
+        // if (player == pc) {
+        //   return 'Its a tie!';
+        // } else {
+        //   if player
+        // }
+
+        if (player == 'rock') {
+          if (pc == 'paper') {
+            return 'You loose! Paper beats Rock';
+          } else if (pc == 'scissors') {
+            return 'You Win! Rock beats Scissors';
+          } else {
+            return 'Its a tie.';
+          }
+        } else if (player == 'paper') {
+          if (pc == 'paper') {
+            return 'Its a tie.';
+          } else if (pc == 'scissors') {
+            return 'You Loose! Scissors beats Paper';
+          } else {
+            return 'You Win! Paper beats Rock';
+          }
+        } else if (player == 'scissors') {
+          if (pc == 'paper') {
+            return 'You Win! Scissors beats paper';
+          } else if (pc == 'rock') {
+            return 'You Loose! Rock beats Scissors';
+          } else {
+            return 'Its a tie.'
+          }
+        } else {
+          return 'Player made an Invalid Selection';
+        }
+      }
+
+      // this function plays janken a total of five times
+      // and record the scores.
+      function game() {
+        let no_of_games = 5;
+
+        let playerScore = 0;
+        let computerScore = 0;
+        let tie = 0;
+        let invalid_game = 0;
+
+        for (let i = 0; i < no_of_games; i++) {
+          var playerSelection = prompt('Rock, Paper or Scissors?');
+          var result =  janken(playerSelection, computerPlay());
+          console.log(result);
+
+          if (goodReg.test(result)) {
+            playerScore++;
+          } else if (badReg.test(result)) {
+            computerScore++;
+          } else if (neutralReg.test(result)) {
+            invalid_game++
+          } else {
+            tie++;
+          }
+
+        }
+
+        console.log(`The score is PLAYER: ${playerScore},\
+           COMPUTER: ${computerScore}, \
+           ${tie} tie(s) and ${invalid_game} Invalid game(s)`);
+      }
+
+    </script>
+
+
+
+  </body>
+</html>
